@@ -16,61 +16,61 @@ MongoClient.connect(connectionURL,{ useNewUrlParser:true}, (error, client)=>{
 
     const db = client.db(databaseName)
     
-    // db.collection('users').findOne({name:'Tushar'},(error, user)=>{
-    //     if(error){
-    //         return console.log('Unable to fetch')
-    //     }
+    db.collection('users').findOne({name:'Tushar'},(error, user)=>{
+        if(error){
+            return console.log('Unable to fetch')
+        }
 
-    //     console.log(user)
-    // })
+        console.log(user)
+    })
 
-    // db.collection('users').find({age:23}).toArray((error, users)=>{
-    //     console.log(users)
-    // })
+    db.collection('users').find({age:23}).toArray((error, users)=>{
+        console.log(users)
+    })
 
-    // db.collection('tasks').findOne({_id:new ObjectID('626a4d71d240996294f69f1a')},(error, user)=>{
+    db.collection('tasks').findOne({_id:new ObjectID('626a4d71d240996294f69f1a')},(error, user)=>{
 
-    //     if(error){
-    //     return console.log('Unable to fetch')
-    //         }
-    //      console.log(user)
-    // })
+        if(error){
+        return console.log('Unable to fetch')
+            }
+         console.log(user)
+    })
 
-    // db.collection('tasks').find({Completed:false}).toArray((error, users)=>{
-    //        console.log(users)
-    //      })
+    db.collection('tasks').find({Completed:false}).toArray((error, users)=>{
+           console.log(users)
+         })
 
-    // const updatePromise = db.collection('users').updateOne({
-    //     _id : new ObjectID("626a47312be2244c9c47b92d")
-    // }, {
-    //     $inc:{
-    //         age : 1
-    //     }
-    // })
+    const updatePromise = db.collection('users').updateOne({
+        _id : new ObjectID("626a47312be2244c9c47b92d")
+    }, {
+        $inc:{
+            age : 1
+        }
+    })
 
-    // updatePromise.then((result)=>{
-    //     console.log(result)
-    // }).catch((error)=>{
-    //     console.log(error)
-    // })
+    updatePromise.then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.log(error)
+    })
 
-    // db.collection('tasks').updateMany({
-    //     completed: false
-    // },{
-    //     $set:{
-    //         Completed : true
-    //     }
-    // }).then((result)=>{
-    //     console.log(result);
-    // }).catch((error)=>{
-    //     console.log(error)
-    // })
+    db.collection('tasks').updateMany({
+        completed: false
+    },{
+        $set:{
+            Completed : true
+        }
+    }).then((result)=>{
+        console.log(result);
+    }).catch((error)=>{
+        console.log(error)
+    })
 
-    // db.collection('users').deleteMany({age:24}).then((result)=>{
-    //     console.log(result)
-    // }).catch((error)=>{
-    //     console.log(error)
-    // })
+    db.collection('users').deleteMany({age:24}).then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.log(error)
+    })
 
     db.collection('tasks').deleteOne({
         description : 'Databases'
