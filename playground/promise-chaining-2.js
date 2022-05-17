@@ -12,7 +12,7 @@ const Task = require('../src/models/task')
 
 const deleteAndCount = async(id)=>{
     const task = await Task.findByIdAndDelete(id)
-    const count = await Task.countDocuments({Completed:false})
+    const count = await Task.countDocuments({completed:false})
     return count
 }
 

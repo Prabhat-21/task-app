@@ -36,7 +36,7 @@ MongoClient.connect(connectionURL,{ useNewUrlParser:true}, (error, client)=>{
          console.log(user)
     })
 
-    db.collection('tasks').find({Completed:false}).toArray((error, users)=>{
+    db.collection('tasks').find({completed:false}).toArray((error, users)=>{
            console.log(users)
          })
 
@@ -58,7 +58,7 @@ MongoClient.connect(connectionURL,{ useNewUrlParser:true}, (error, client)=>{
         completed: false
     },{
         $set:{
-            Completed : true
+            completed : true
         }
     }).then((result)=>{
         console.log(result);
